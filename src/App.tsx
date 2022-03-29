@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import { BrowserRouter, Link, Navigate, Route, Routes } from "react-router-dom";
+import { KittiesPage } from "./pages/KittiesPage";
+import { PuppiesPage } from "./pages/PuppiesPage";
+import { Cart } from "./components/cart/Cart";
+import { CartProvider } from "./contexts/CartContext";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CartProvider>
+        <div className="pages">
+          <BrowserRouter>
+            <Link to="/kitties">Kitties</Link>
+            <Link to="/puppies">Puppies</Link>
+            <Routes>
+              <Route path="/" element={<Navigate to="/kitties" />} />
+              <Route path="kitties" element={<KittiesPage />} />
+              <Route path="puppies" element={<PuppiesPage />} />
+            </Routes>
+          </BrowserRouter>
+        </div>
+        <Cart />
+      </CartProvider>
     </div>
   );
 }

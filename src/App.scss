@@ -1,0 +1,62 @@
+.App {
+  padding: 80px;
+  display: flex;
+
+  .pages {
+    width: 80%;
+    padding-right: 18px;
+
+    > a {
+      padding: 12px 12px 12px 0;
+    }
+
+    .KittiesPage,
+    .PuppiesPage {
+      padding: 20px 0;
+    }
+  }
+
+  .delete-icon {
+    cursor: pointer;
+  }
+
+  .Cart {
+    border-left: 4px solid black;
+    padding-left: 18px;
+
+    .cart-title {
+      display: flex;
+      align-items: center;
+
+      > * {
+        display: flex;
+        align-items: center;
+      }
+
+      .cart-text {
+        padding-right: 48px;
+      }
+
+      .clean {
+        cursor: pointer;
+        padding-right: 24px;
+      }
+
+      .close {
+        cursor: pointer;
+      }
+
+      span {
+        padding-left: 12px;
+      }
+    }
+  }
+
+  .cart-open {
+    cursor: pointer;
+    margin-left: 72px;
+    display: flex;
+    align-items: center;
+    height: 42px;
+  }
+}
